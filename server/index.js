@@ -14,6 +14,7 @@ app.use(express.json());
 // Routes
 app.use('/api/auth', authRoutes);
 
+
 // Database Connection & Server Start
 const startServer = async () => {
     try {
@@ -32,4 +33,8 @@ const startServer = async () => {
     }
 };
 
-startServer();
+if (require.main === module) {
+    startServer();
+}
+
+module.exports = app;
