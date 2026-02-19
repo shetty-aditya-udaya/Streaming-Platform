@@ -6,8 +6,11 @@
             "use": "@vercel/node"
         },
         {
-            "src": "dist/**",
-            "use": "@vercel/static"
+            "src": "package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist"
+            }
         }
     ],
     "routes": [
@@ -16,11 +19,11 @@
             "dest": "/server/index.js"
         },
         {
-            "src": "/(.*)",
+            "src": "/(assets/.*)",
             "dest": "/dist/$1"
         },
         {
-            "src": "/",
+            "src": "/(.*)",
             "dest": "/dist/index.html"
         }
     ]
