@@ -7,11 +7,11 @@ if (!process.env.DB_HOST || !process.env.DB_USER || !process.env.DB_NAME || !pro
 }
 
 const sequelize = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
+    process.env.DB_NAME.trim(),
+    process.env.DB_USER.trim(),
+    process.env.DB_PASSWORD.trim(),
     {
-        host: process.env.DB_HOST,
+        host: process.env.DB_HOST.trim(),
         port: process.env.DB_PORT,
         dialect: 'postgres',
         dialectModule: pg,
